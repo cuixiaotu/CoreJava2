@@ -6,7 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
-public class StreamTest {
+public class CountLongWords {
 
 
     //一次行按字符串读出 转为数组再遍历
