@@ -59,7 +59,24 @@ Optional<U> result = s.f().flatMap(T::g)
 
 ### 1.8 收集结果
 处理完流后，可以调用iterator方法，或者用forEach
-使用供货价
+Collectors类提供大量的生成公共收集器的工厂方法
+List<String> res = stream.collect(Collectors.toList());
+Set<String> res = stream.collect(Collectors.toSet());
+TreeSet<String> res = stream.collect(Collectors.toCollection(TreeSet::new));
+
+### 1.9 收集到映射表中
+Collectors.toMap
+Map<Integer,String> idToName = people.collect(Collectors.toMap(Person::getId,Person::getName));
+Map<Integer,Peoson> idToName = people.collect(Collectors.toMap(Person::getId,Function.identity));
+
+### 1.10 群组和分区
+groupingBy     群组 
+partitioningBy 分区
+
+### 1.11 下游收集器
+
+
+### 1.12 
 
 
  
@@ -99,7 +116,14 @@ java.util.stream.Stream<T> 1.8
    返回一个流，按照comparator排序
  - Stream<T> peek( Consumer<? extends T>action)
    返回一个流，与当前元素相同，获取元素将传递给action      
-    
+
+-  void forEach(Consumer <? super T> action)
+    流上的每个元素调用aciton.
+-  Object[] toArray()
+-  Object[] toArray(IntFunction <A[]> generator)
+    产生一个对象数组，或者引用A[]::new
+-  <R,A>R collect(Collector <? super T,A,R> collector)    
+    使用给定的收集器来收集当前流中的元素.
            
 
 java.util.Arrays 1.2
