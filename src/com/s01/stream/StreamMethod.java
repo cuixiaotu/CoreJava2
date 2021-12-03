@@ -29,10 +29,14 @@ public class StreamMethod {
 
         // 1.4
         Stream<String>  limit = words.stream().limit(1);
+        System.out.println(limit);
 
         Stream<String> skip = words.stream().skip(1);
+        System.out.println(skip);
 
-      //  Stream<String> concat = Arrays.stream(new String[]{"12312"}).concat(words.stream());
+
+        Stream<String> concat = Stream.concat(Arrays.stream(new String[]{"12312"}),skip);
+        System.out.println(concat.count());
 
 
 
@@ -51,10 +55,10 @@ public class StreamMethod {
         num.add(12);
 
         Optional<Integer> max = num.stream().max(Integer::compareTo);
-        System.out.println(max.orElse(111));
+        System.out.println(max.orElse(0));
 
         Optional<Integer> min = num.stream().min(Integer::compareTo);
-        System.out.println(min.orElse(222));
+        System.out.println(min.orElse(999));
 
         Optional<String> startsWithQ = words.stream().filter(s->s.startsWith("Q")).findFirst();
 

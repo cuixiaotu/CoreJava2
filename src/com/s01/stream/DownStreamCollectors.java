@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Stream;
-import java.util.stream.Collectors;
 
 //这里静态引入
 import static java.util.stream.Collectors.*;
@@ -43,7 +42,8 @@ public class DownStreamCollectors {
 
     public static void main(String[] args) throws IOException {
         Stream<Locale> locales = Stream.of(Locale.getAvailableLocales());
-        locales = Stream.of(Locale.getAvailableLocales());
+        //locales = Stream.of(Locale.getAvailableLocales());
+        System.out.println("locales:" + locales);
 
         Map<String, Set<Locale>> countryToLocaleSet = locales.collect(groupingBy(Locale::getCountry,toSet()));
         System.out.println("countryToLocaleSet:" + countryToLocaleSet);

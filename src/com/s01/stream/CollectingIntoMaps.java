@@ -36,7 +36,8 @@ public class CollectingIntoMaps {
 
 
     public static Stream<Person> people(){
-        return Stream.of(new Person(1004,"Peter"),new Person(1001,"Paul"),new Person(1002,"Mary"));
+        return Stream.of(new Person(1001,"Peter"),new Person(1002,"Paul"),new Person(1003,"Mary"));
+        //return Stream.of(new Person(1001,"aP"),new Person(1001,"Peter"),new Person(1002,"Paul"),new Person(1003,"Mary"));
     }
 
     public static void main(String[] args) throws IOException {
@@ -47,11 +48,11 @@ public class CollectingIntoMaps {
         idToName = people().collect(Collectors.toMap(
                 Person::getId,
                 Person::getName,
-                (s, a) ->  s + ", " + a
+                (s, a) ->  s + ", " + a //当key冲突时候调用的方法 ，s a 为两个value
         ));
-        System.out.println("idToName2:" +idToName);
+        System.out.println("idToName2 :" +idToName);
 
-        //对Function.identity不理解
+        //对Function.identity不理解 简单来说就是元素本身 t->t
         Map<Integer,Person> idToPerson = people().collect(Collectors.toMap(Person::getId, Function.identity()));
         System.out.println("idToPerson1:" + idToPerson.getClass().getName()+idToPerson);
 
@@ -64,8 +65,9 @@ public class CollectingIntoMaps {
         System.out.println("idToPerson2:" + idToPerson.getClass().getName()+idToPerson);
 
 
-
         Stream<Locale> locales = Stream.of(Locale.getAvailableLocales());
+        System.out.println("locales: " + Arrays.toString(Locale.getAvailableLocales()));
+
         Map<String,String> languageNames = locales.collect(
                 Collectors.toMap(
                         Locale::getDisplayLanguage,
@@ -82,9 +84,6 @@ public class CollectingIntoMaps {
                         Locale::getDisplayCountry,
                         l-> Collections.singleton(l.getDisplayLanguage()),
                         (a,b) -> {
-                            if (a.isEmpty()){
-                                return new HashSet<>();
-                            }
                             Set<String> union = new HashSet<>(a);
                             union.addAll(b);
                             return union;

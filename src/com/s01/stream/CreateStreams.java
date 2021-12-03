@@ -16,7 +16,7 @@ public class CreateStreams {
         List<T> firstElement = stream.limit(SIZE+1).collect(Collectors.toList());
         System.out.print(title + ":");
         for (int i=0;i<firstElement.size();i++){
-            if (i>0) System.out.print(",");
+            if (i>0 && i< SIZE) System.out.print(",");
             if (i<SIZE) System.out.print(firstElement.get(i));
             else System.out.print("...");
         }
@@ -27,7 +27,7 @@ public class CreateStreams {
         Path path = Paths.get("D:\\project\\CoreJava2\\src\\com\\s01\\stream\\text.txt");
         String content = new String(Files.readAllBytes(path), StandardCharsets.UTF_8);
 
-        Stream<String> words = Stream.of(content.split("\\PL+"));
+        Stream<String> words = Stream.of(content.split("\r\n"));
         show("words",words);
 
         Stream<String> song = Stream.of("gently","down","the","stream");
@@ -42,7 +42,10 @@ public class CreateStreams {
         Stream<Double> randoms = Stream.generate(Math::random);
         show("randoms",randoms);
 
-        Stream<BigInteger> integers = Stream.iterate(BigInteger.ONE,n->n.add(BigInteger.ONE));
+        Stream<Integer> integer = Stream.iterate(0,n->n=n+1);
+        show("Integer",integer);
+
+        Stream<BigInteger> integers = Stream.iterate(BigInteger.ZERO,n->n.add(BigInteger.ONE));
         show("intergers",integers);
 
         Stream<String> wordsAnotherWay = Pattern.compile("\\PL+").splitAsStream(content);

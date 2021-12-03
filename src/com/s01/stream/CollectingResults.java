@@ -5,7 +5,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -19,29 +18,33 @@ public class CollectingResults {
 
     public static <T> void show(String label,Set<T> set){
         System.out.println(label + ":" + set.getClass().getName() );
-        System.out.println("[" + set.stream().limit(10).map(Object::toString).collect(Collectors.joining(", ") ) + " ]");
+        System.out.println("[" + set.stream().limit(20).map(Object::toString).collect(Collectors.joining(", ") ) + " ]");
     }
 
     public static void main(String[] args) throws IOException{
         Iterator<Integer> iter = Stream.iterate(0,n->n+1).limit(10).iterator();
         while (iter.hasNext()){
-            System.out.println(iter.next());
+            System.out.print(iter.next()+ " ");
         }
+        System.out.println();
 
         Object[] numbers = Stream.iterate(0,n->n+1).limit(10).toArray();
         System.out.println("Object array :" + numbers);
+        System.out.println("array :" + Arrays.toString(numbers));
+
 
         try {
             Integer number= (Integer) numbers[0];
             System.out.println("number :" + number);
             System.out.println("The following statement throws an exception");
-            Integer[] number2 = (Integer[]) numbers; //throws exception
+            Integer[] number2 = (Integer[]) numbers; //throws exception 由流转为的对象数组,没办法直接转为其他类型的元素数组
         }catch (ClassCastException ex){
             System.out.println(ex);
         }
 
+        //在流转数组的时候 每个元素用Integer[]::new初始化 即可生成int数组
         Integer[] number3 = Stream.iterate(0,n->n+1).limit(10).toArray(Integer[]::new);
-        System.out.println("Interger array: "+ number3); //note its an Interger[] array
+        System.out.println("Integer array: "+ number3); //note: its an Integer[] array
 
         Set<String> noVowelSet = noVowels().collect(Collectors.toSet());
         show("noVowelSet",noVowelSet);

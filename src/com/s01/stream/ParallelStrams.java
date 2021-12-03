@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +23,7 @@ public class ParallelStrams {
         List<String> wordList = Arrays.asList(contents.split("\\PL+"));
 
         int[] shortWords = new int[10];
-        wordList.parallelStream().forEach(s->{
+        wordList.stream().forEach(s->{
             if (s.length()<10) shortWords[s.length()]++;
         });
         System.out.println(Arrays.toString(shortWords));
@@ -42,12 +43,12 @@ public class ParallelStrams {
         Map<Integer,List<String>> result = wordList.parallelStream().collect(
                 Collectors.groupingByConcurrent(String::length)
         );
-        System.out.println(result.get(14));
+        System.out.println(result.get(9));
 
         result = wordList.parallelStream().collect(
                 Collectors.groupingByConcurrent(String::length)
         );
-        System.out.println(result.get(14));
+        System.out.println(result.get(8));
 
         Map<Integer,Long> wordCounts = wordList.parallelStream().collect(
                 groupingByConcurrent(String::length,counting())
