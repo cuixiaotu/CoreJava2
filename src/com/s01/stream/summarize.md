@@ -74,9 +74,29 @@ groupingBy     群组
 partitioningBy 分区
 
 ### 1.11 下游收集器
+多种群组收集器
+counting 计数
+summing  总和
+maxBy    下游元素的最大值
+minBy    下游元素的最小值
 
+### 1.12 约简操作
+reduce 接受一个二元函数，将两个元素持续应用该函数
 
-### 1.12 
+### 1.13 基本类型流
+IntStream
+LongStream
+DoubleStream
+
+mapToInt
+mapToLong
+mapToDouble
+
+### 1.14 并行流
+流使并行处理变的容易
+Collection.parallelStream() 将任意集合转换为并行流
+stream.parallel() 将顺序流转为并行流
+
 
 
  

@@ -52,13 +52,13 @@ public class DownStreamCollectors {
         Map<String,Long> countryToLocaleCounts = locales.collect(groupingBy(Locale::getCountry,counting()));
         System.out.println("countryToLocaleCount:" + countryToLocaleCounts);
 
-        Stream<City> cities = readCities("cities.txt");
+        Stream<City> cities = readCities("D:\\project\\CoreJava2\\src\\com\\s01\\stream\\cities.txt");
         Map<String,Integer> stateToCityPopulation = cities.collect(groupingBy(City::getState,summingInt(City::getPopulation)));
 
         System.out.println("stateToCityPopulation: "+ stateToCityPopulation);
 
 
-        cities = readCities("cities.txt");
+        cities = readCities("D:\\project\\CoreJava2\\src\\com\\s01\\stream\\cities.txt");
         Map<String, Optional<String>> stateToLongestCityName =  cities.collect(groupingBy(City::getState,mapping(City::getName,maxBy(Comparator.comparing(String::length)))));
         System.out.println("stateToLongestCityName: "+ stateToLongestCityName);
 
@@ -71,7 +71,7 @@ public class DownStreamCollectors {
         System.out.println("countryToLanguages：" + countryToLanguages);
 
 
-        cities = readCities("cities.txt");
+        cities = readCities("D:\\project\\CoreJava2\\src\\com\\s01\\stream\\cities.txt");
         Map<String,IntSummaryStatistics> stateToCityPopulationSummary = cities.collect(
                 groupingBy(City::getName,
                         summarizingInt(City::getPopulation))
@@ -79,19 +79,18 @@ public class DownStreamCollectors {
 
         System.out.println("stateToCityPopulationSummary：" + stateToCityPopulationSummary.get("NY"));
 
-        cities = readCities("cities.txt");
+        cities = readCities("D:\\project\\CoreJava2\\src\\com\\s01\\stream\\cities.txt");
         Map<String,String> stateToCityNames = cities.collect(groupingBy(City::getState,
                     reducing("",City::getName,(s,t)->s.length() == 0?t:s+","+t)
                 ));
 
+        System.out.println("stateToCityNames:" + stateToCityNames);
 
-        cities = readCities("cities.txt");
+        cities = readCities("D:\\project\\CoreJava2\\src\\com\\s01\\stream\\cities.txt");
         stateToCityNames = cities.collect(groupingBy(City::getState,
                 mapping(City::getName,joining(","))
         ));
         System.out.println("stateToCityNames:" + stateToCityNames);
-
-
 
     }
 

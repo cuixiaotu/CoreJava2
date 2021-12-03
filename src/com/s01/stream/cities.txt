@@ -1,0 +1,50 @@
+New York, NY, 8336697
+Los Angeles, CA, 3857799
+Chicago, IL, 2714856
+Houston, TX, 2160821
+Philadelphia, PA, 1547607
+Phoenix, AZ, 1488750
+San Antonio, TX, 1382951
+San Diego, CA, 1338348
+Dallas, TX, 1241162
+San Jose, CA, 982765
+Austin, TX, 842592
+Jacksonville, FL, 836507
+Indianapolis, IN, 834852
+San Francisco, CA, 825863
+Columbus, OH, 809798
+Fort Worth, TX, 777992
+Charlotte, NC, 775202
+Detroit, MI, 701475
+El Paso, TX, 672538
+Memphis, TN, 655155
+Boston, MA, 636479
+Seattle, WA, 634535
+Denver, CO, 634265
+Washington, DC, 632323
+Nashville-Davidson, TN, 624496
+Baltimore, MD, 621342
+Louisville/Jefferson County, KY, 605110
+Portland, OR, 603106
+Oklahoma, OK, 599199
+Milwaukee, WI, 598916
+Las Vegas, NV, 596424
+Albuquerque, NM, 555417
+Tucson, AZ, 524295
+Fresno, CA, 505882
+Sacramento, CA, 475516
+Long Beach, CA, 467892
+Kansas, MO, 464310
+Mesa, AZ, 452084
+Virginia Beach, VA, 447021
+Atlanta, GA, 443775
+Colorado Springs, CO, 431834
+Raleigh, NC, 423179
+Omaha, NE, 421570
+Miami, FL, 413892
+Oakland, CA, 400740
+Tulsa, OK, 393987
+Minneapolis, MN, 392880
+Cleveland, OH, 390928
+Wichita, KS, 385577
+Arlington, TX, 375600
