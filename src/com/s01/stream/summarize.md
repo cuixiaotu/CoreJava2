@@ -97,10 +97,6 @@ mapToDouble
 Collection.parallelStream() 将任意集合转换为并行流
 stream.parallel() 将顺序流转为并行流
 
-
-
- 
-
 java.util.stream.Stream<T> 1.8
 - Stream<T> filter(Predicate<? super T> p)
     返回一个流，当前流中满足条件p的所有元素

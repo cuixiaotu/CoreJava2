@@ -3,16 +3,29 @@
 #### 2.1 输入/输出流
 从其中读入一个字母序列的对象称为输入流，想其中写入一个字母序列的对象叫做输出流。
 Unicode每个字符都是多个字节，JAVA有专门处理Unicode的单独类(读取两字节的Char类型， Unicode码元)
-InputStream read
-OutputStream write
+1. 读写单个字节/字节数组:
+    InputStream read
+    OutputStream write
+2. 二进制读写所有基础Java类型
+    DataInputStream
+    DataOutputStream 
+3. Unicode文本
+    Reader
+    Writer
+4. ZIP压缩格式读写
+    ZipInputStream
+    ZipOutputStream
 
 
+Closeable Flushable Readable Appendable
 
-#### 1.2 流的创建
-Stream可以将任意集合转换为一个流
-1. 流不存储其元素 按需生成
-2. 流的操作不影响其数据源
-3. 流的操作是惰性的  操作所有流，但是操作会在满足条件的时候停止
+- 文件读写
+    FileInputStream
+    FileOutputStream
+        
+
+
+#### 2.2 文本的输入输出
 
 
 
