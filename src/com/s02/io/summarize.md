@@ -3,6 +3,14 @@
 #### 2.1 输入/输出流
 从其中读入一个字母序列的对象称为输入流，想其中写入一个字母序列的对象叫做输出流。
 Unicode每个字符都是多个字节，JAVA有专门处理Unicode的单独类(读取两字节的Char类型， Unicode码元)
+1.    InputStream 
+2.    OutputStream
+3.    Reader
+4.    Writer 
+    
+
+
+
 1. 读写单个字节/字节数组:
     InputStream read
     OutputStream write
